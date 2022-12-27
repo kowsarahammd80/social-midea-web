@@ -36,7 +36,7 @@ const Main = () => {
           </div>
            
            {/* middel side */}
-          <div className="col-span-12 lg:col-span-5 mx-0 lg:mx-10">
+          <div className="col-span-full lg:col-span-5 mx-0 lg:mx-14">
             <Outlet></Outlet>
           </div>
             
