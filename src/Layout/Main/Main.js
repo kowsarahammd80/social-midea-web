@@ -11,10 +11,10 @@ const Main = () => {
         <div className="container grid grid-cols-3 lg:grid-cols-8 md:grid-cols-5">
           
           {/* left side  */}
-          <div className="hidden lg:block lg:col-span-2">
+          <div className="hidden lg:block  lg:col-span-2">
            
 
-            <ul>
+            <ul className="ml-3">
                <li>
                  <h1 className="text-lg font-semibold mt-5 mb-3"> <i class="fa-solid fa-user-group"></i> Friends</h1>
                </li>
@@ -36,7 +36,7 @@ const Main = () => {
           </div>
            
            {/* middel side */}
-          <div className="col-span-12 lg:col-span-5">
+          <div className="col-span-12 lg:col-span-5 mx-0 lg:mx-10">
             <Outlet></Outlet>
           </div>
             

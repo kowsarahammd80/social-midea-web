@@ -18,19 +18,19 @@ const routers = createBrowserRouter([
   },
 
   
-
    
-  // {
-  //   path: '/',
-  //   element: <Main></Main>,
-  //   children: [
-  //     {
-  //       path: '/home',
-  //       element: <Homepages></Homepages>
-  //     }
-  //   ]
+  {
+    path: '/',
+    element: <Main></Main>,
+    children: [
+      {
+        path: '/home',
+        element: <Homepages></Homepages>
+      }
+    ]
     
-  // },
+  },
+
 ])
 
 export default routers;

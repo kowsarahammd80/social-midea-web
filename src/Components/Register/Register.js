@@ -1,67 +1,153 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import GoogleSocial from "../../Sheard/Social/GoogleSocial";
 
 const Register = () => {
+  const { creatUser, setProfile, loading } = useContext(AuthContext);
+  const [error, setError] = useState('')
+
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    console.log(name, email, password);
+
+    creatUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        if(loading){
+          return <h1>loading...</h1> 
+       }
+       setError('')
+        console.log(user)
+        setUserInfo(name) 
+      })
+      .catch((error) => {
+        setError(error.message)
+        console.error(error.message)
+      });
+  };
+
+  
+  
+
+  const setUserInfo = (name) => {
+    const profile = {
+      displayName: name,
+    };
+    console.log(profile)
+    setProfile(profile)
+     .then(() => {})
+     .catch(e => console.error(e))
+  };
+
+  
+
   return (
     <div className="mx-0 lg:mx-10">
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row">
-          <div className="text-center lg:text-left hidden lg:block">
-            <h1 className="text-5xl font-bold">WelCome To My Socila Media!</h1>
+          <div className="text-center lg:text-left ">
+            <h1 className="text-5xl font-bold">Welcome To Facklook!</h1>
             <p className="py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
               excepturi exercitationem quasi.
             </p>
           </div>
+
           <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl ">
             <div className="card-body">
-               <h1 className="text-xl font-bold text-center">Register Now !</h1>
-              <form>
+              <h1 className="text-xl font-bold text-center">Register Now !</h1>
+
+              <form onSubmit={handleRegister}>
+
                 <div className="form-control">
+
                   <label className="label">
-                    <span className="label-text">Full Name</span>
+                    <span className="label-text"> Full Name </span>
                   </label>
+
                   <input
                     type="text"
+                    name="name"
                     placeholder="Full Name"
                     className="input input-bordered"
+                    required
                   />
+
                 </div>
 
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Email</span>
+                    <span className="label-text"> Email </span>
                   </label>
+
                   <input
-                    type="text"
+                    type="email"
+                    name="email"
                     placeholder="email"
                     className="input input-bordered"
+                    required
                   />
+
                 </div>
 
                 <div className="form-control">
+
                   <label className="label">
-                    <span className="label-text">Password</span>
+                    <span className="label-text"> Password </span>
                   </label>
+
                   <input
-                    type="text"
+                    type="password"
+                    name="password"
                     placeholder="password"
                     className="input input-bordered"
+                    required
                   />
+
                   <label className="label">
                     <a href="#" className="label-text-alt link link-hover">
                       Forgot password?
                     </a>
                   </label>
+
                 </div>
+
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Login</button>
+
+                  <button type="submit" className="btn btn-primary">
+                    
+                    Register
+
+                  </button>
+
                 </div>
-                
+
+                <p className="mt-2 text-center font-semibold">
+                  Do You Have Account?
+                  <span>
+                    <Link to="/" className="text-success font-bold">
+                      Login
+                    </Link>
+                  </span>
+                </p>
+
+                <p className="font-semibold text-red-500">{error}</p>
+
               </form>
+
+              <GoogleSocial></GoogleSocial>
+
             </div>
           </div>
         </div>
       </div>
+
     </div>
   );
 };

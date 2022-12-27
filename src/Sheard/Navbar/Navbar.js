@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const { logOut, user } = useContext(AuthContext);
+
+  const signOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((e) => console.error(e));
+  };
+
   const navbar = (
     <>
       <li></li>
@@ -88,10 +97,33 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end">
-          <div className="avatar hight">
-            <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img src="https://placeimg.com/192/192/people" />
-            </div>
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src="https://placeimg.com/80/80/people" />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  {/* <span className="badge"></span> */}
+                </a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              {user?.uid && (
+                <li>
+                  <button onClick={signOut} className="">
+                    Log Out
+                  </button>
+                </li>
+              )}
+            </ul>
           </div>
         </div>
       </div>
