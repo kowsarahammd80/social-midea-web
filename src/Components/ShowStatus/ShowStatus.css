@@ -1,0 +1,14 @@
+.height-post-image{
+  width: 100%;
+  height: 65vh;
+}
+
+.like{
+  font-size: 30px;
+  color: slateblue;
+}
+
+.love{
+  font-size: 30px;
+  color: red;
+}
