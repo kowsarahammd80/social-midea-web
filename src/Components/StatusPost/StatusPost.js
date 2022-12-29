@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 import StatusPostModal from "../StatusPostModal/StatusPostModal";
 import "./StatusePost.css";
 
 const StatusPost = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div className="bg-green-100 mb-5 mt-1">
       <div className=" flex items-center">
         <div className="avatar placeholder">
           <div className=" text-neutral-content rounded-full w-16 p-2">
-            <img
-              src="https://placeimg.com/192/192/people"
-              alt=""
-              className=""
-            />
+            <img src={user?.photoURL} alt="" className="" />
           </div>
         </div>
 
@@ -33,23 +32,33 @@ const StatusPost = () => {
       <div className="divider"></div>
 
       <div className="p-1 flex justify-around ">
-        
-          <label
-            htmlFor="my-modal"
-            className="btn-ghost p-1 bg-yellow-300 rounded-lg"
-          >
-            <i class="fa-solid fa-image"></i>{" "}
-            <span className="font-semibold">Image Upload</span>
-          </label>
-        
+        <label
+          htmlFor="my-modal"
+          className="btn-ghost p-1 bg-yellow-300 rounded-lg"
+        >
+          <i class="fa-solid fa-image"></i>{" "}
+          <span className="font-semibold">Image Upload</span>
+        </label>
 
-        
-          <button className="btn-ghost bg-sky-300 p-1 font-semibold rounded-lg">
-            <i class="fa-solid fa-podcast"></i> Live Video{" "}
-          </button>
+        {/* <label htmlFor="photo">
+        <i class="fa-solid fa-image upload-image"></i>
+        </label>
+        <input
+          type="file"
+          id="photo"
+          name="photo"
+          className="w-0  border-none"
+        />
+         */}
 
-          <button className="btn-ghost bg-fuchsia-300 p-1 font-semibold rounded-lg"> <i class="fa-solid fa-face-smile"></i> Feeling</button>
-        
+        <button className="btn-ghost bg-sky-300 p-1 font-semibold rounded-lg">
+          <i class="fa-solid fa-podcast"></i> Live Video{" "}
+        </button>
+
+        <button className="btn-ghost bg-fuchsia-300 p-1 font-semibold rounded-lg">
+          {" "}
+          <i class="fa-solid fa-face-smile"></i> Feeling
+        </button>
 
         <StatusPostModal></StatusPostModal>
       </div>

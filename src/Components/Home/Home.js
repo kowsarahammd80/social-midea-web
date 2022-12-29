@@ -5,8 +5,12 @@ import StatusPost from '../StatusPost/StatusPost';
 const Home = () => {
   return (
     <div>
+       <div>
        <StatusPost></StatusPost>
+       </div>
+       <div>
        <ShowStatus></ShowStatus>
+       </div>
     </div>
   );
 };

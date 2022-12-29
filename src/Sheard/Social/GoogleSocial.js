@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import './GoogleSocial.css'
 
@@ -8,12 +9,15 @@ const GoogleSocial = () => {
   
   const {socialSignUp} = useContext(AuthContext)
   const provider = new GoogleAuthProvider()
+
+  const navigate = useNavigate()
   
   const handleGoogle = () => {
     socialSignUp(provider)
      .then(result => {
        const user = result.user
        console.log(user)
+       navigate('/home')
      })
      .catch(error => console.log(error))
   }
