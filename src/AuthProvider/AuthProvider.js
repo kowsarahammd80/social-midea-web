@@ -16,18 +16,23 @@ const AuthProvider = ({children}) => {
   
 
   const creatUser = (email, password) =>{
+
     setLoading(true)
    return createUserWithEmailAndPassword(auth, email, password) 
 
   }
 
   const login = (email, password) => {
+
     setLoading(true)
     return signInWithEmailAndPassword(auth, email, password)
+
   }
 
   const socialSignUp = (provider) => {
+
     return signInWithPopup(auth, provider)
+    
   }
 
   const setProfile = (profile) =>{

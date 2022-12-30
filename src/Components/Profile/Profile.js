@@ -1,12 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import AboutModal from "../AboutModal/AboutModal";
+import AboutShow from "../AboutShow/AboutShow";
 import StatusPost from "../StatusPost/StatusPost";
 import UserStatesShow from "../UserStatesShow/UserStatesShow";
 import "./Profile.css";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
+
+  const [abouts, setAbouts] = useState([])
+  
+  useEffect(() => {
+    fetch(`http://localhost:5000/registerData/${user?.email}`)
+    .then(res => res.json())
+     .then(data => setAbouts(data))
+  },[user?.email])
 
   return (
     <div>
@@ -32,7 +41,10 @@ const Profile = () => {
           <hr />
 
           <div className="flex justify-evenly">
-            <label htmlFor="my-modal1" className="font-semibold background-modal btn btn-ghost">
+            <label
+              htmlFor="my-modal1"
+              className="font-semibold background-modal btn btn-ghost"
+            >
               About
             </label>
 
@@ -41,6 +53,15 @@ const Profile = () => {
             <h1 className="font-semibold btn btn-ghost">Video</h1>
           </div>
           <AboutModal></AboutModal>
+          <hr />
+
+         {
+           abouts.map(about => <AboutShow
+             key={about._id}
+             aboutData = {about}
+           ></AboutShow>)
+         }
+
         </div>
       </div>
 

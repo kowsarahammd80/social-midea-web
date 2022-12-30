@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Loging from "../../Components/Loging/Loging";
+import Media from "../../Components/Media/Media";
 import Register from "../../Components/Register/Register";
 import Main from "../../Layout/Main/Main";
 import Homepages from "../../Pages/HomePages/Homepages";
@@ -39,6 +40,11 @@ const routers = createBrowserRouter([
       {
         path:'/massage',
         element: <MassagePage/>
+      },
+
+      {
+        path: '/media',
+        element: <Media></Media>
       }
       
     ]

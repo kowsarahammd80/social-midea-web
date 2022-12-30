@@ -45,11 +45,18 @@ const Navbar = () => {
           <i class="fa-solid fa-bell"></i>
         </Link>
       </li>
+      
+      <li>
+        <Link to='/media'>
+            Media
+        </Link>
+      </li>
+
     </>
   );
 
   return (
-    <div>
+    <div className="">
       <div className="navbar background">
         <div className="navbar-start">
           <div className="dropdown">

@@ -32,10 +32,7 @@ const StatusPost = () => {
       <div className="divider"></div>
 
       <div className="p-1 flex justify-around ">
-        <label
-          htmlFor="my-modal"
-          className="btn-ghost p-1 bg-yellow-300 rounded-lg"
-        >
+        <label htmlFor="my-modal" className="btn-ghost p-1 rounded-lg">
           <i class="fa-solid fa-image"></i>{" "}
           <span className="font-semibold">Image Upload</span>
         </label>
@@ -51,11 +48,11 @@ const StatusPost = () => {
         />
          */}
 
-        <button className="btn-ghost bg-sky-300 p-1 font-semibold rounded-lg">
+        <button className="btn-ghost  p-1 font-semibold rounded-lg">
           <i class="fa-solid fa-podcast"></i> Live Video{" "}
         </button>
 
-        <button className="btn-ghost bg-fuchsia-300 p-1 font-semibold rounded-lg">
+        <button className="btn-ghost  p-1 font-semibold rounded-lg">
           {" "}
           <i class="fa-solid fa-face-smile"></i> Feeling
         </button>
