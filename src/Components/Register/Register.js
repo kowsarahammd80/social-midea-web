@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import GoogleSocial from "../../Sheard/Social/GoogleSocial";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const { creatUser, setProfile, loading } = useContext(AuthContext);
@@ -12,7 +12,7 @@ const Register = () => {
   const imageHostKey = process.env.REACT_APP_image_key;
   // console.log(imageHostKey);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -35,7 +35,6 @@ const Register = () => {
         const image = imageData.data.display_url;
         console.log(image);
 
-
         creatUser(email, password)
           .then((result) => {
             const user = result.user;
@@ -45,23 +44,16 @@ const Register = () => {
             setError("");
             console.log(user);
             setUserInfo(name, image);
-            saveUser(name, email, image)
-            navigate('/')
-
+            saveUser(name, email, image);
+            navigate("/");
           })
           .catch((error) => {
             setError(error.message);
             console.error(error.message);
           });
       });
-       
-      
 
-      // fetch for data base
-     
-
-   
-
+    // fetch for data base
   };
 
   const setUserInfo = (name, image) => {
@@ -76,31 +68,28 @@ const Register = () => {
   };
 
   const saveUser = (name, email, image) => {
-     const userInfo = {
-       name: name,
-       email: email,
-       image: image,
-     }
-     
-     fetch(`http://localhost:5000/registerData`,{
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(userInfo)
-     })
-     .then(res => res.json())
-     .then(data => {
-       console.log(data)
-      //  if(data.acknowledged){
-      //       toast("Wow so easy!");
-      //  }
-      
-      
-     })
-     .catch(e => console.error(e))
+    const userInfo = {
+      name: name,
+      email: email,
+      image: image,
+    };
 
-  }
+    fetch(`http://localhost:5000/registerData`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(userInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        //  if(data.acknowledged){
+        //       toast("Wow so easy!");
+        //  }
+      })
+      .catch((e) => console.error(e));
+  };
 
   return (
     <div className="mx-0 lg:mx-10">

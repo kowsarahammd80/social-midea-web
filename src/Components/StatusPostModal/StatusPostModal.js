@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import moment from 'moment/moment';
+import moment from "moment/moment";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import "./StatusPostModal.css";
 
@@ -14,8 +14,7 @@ const StatusPostModal = () => {
   };
 
   const handleStatusPost = (event) => {
-    
-    const postTime = moment().format('lll');
+    const postTime = moment().format("lll");
     event.preventDefault();
     const form = event.target;
     const text = form.text.value;
@@ -34,12 +33,26 @@ const StatusPostModal = () => {
       .then((imageData) => {
         const image = imageData.data.display_url;
         console.log(image);
-        userStatusPhoto(text, image, user.email, user.displayName, user.photoURL, postTime);
+        userStatusPhoto(
+          text,
+          image,
+          user.email,
+          user.displayName,
+          user.photoURL,
+          postTime
+        );
         form.reset("");
       });
   };
 
-  const userStatusPhoto = (text, image, email, displayName, photoURL, postTime) => {
+  const userStatusPhoto = (
+    text,
+    image,
+    email,
+    displayName,
+    photoURL,
+    postTime
+  ) => {
     const statusWithPhoto = {
       text: text,
       image: image,

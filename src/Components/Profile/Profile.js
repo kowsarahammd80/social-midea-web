@@ -9,13 +9,13 @@ import "./Profile.css";
 const Profile = () => {
   const { user } = useContext(AuthContext);
 
-  const [abouts, setAbouts] = useState([])
-  
+  const [abouts, setAbouts] = useState([]);
+
   useEffect(() => {
     fetch(`http://localhost:5000/registerData/${user?.email}`)
-    .then(res => res.json())
-     .then(data => setAbouts(data))
-  },[user?.email])
+      .then((res) => res.json())
+      .then((data) => setAbouts(data));
+  }, [user?.email]);
 
   return (
     <div>
@@ -55,13 +55,9 @@ const Profile = () => {
           <AboutModal></AboutModal>
           <hr />
 
-         {
-           abouts.map(about => <AboutShow
-             key={about._id}
-             aboutData = {about}
-           ></AboutShow>)
-         }
-
+          {abouts.map((about) => (
+            <AboutShow key={about._id} aboutData={about}></AboutShow>
+          ))}
         </div>
       </div>
 

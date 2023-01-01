@@ -6,12 +6,10 @@ const ShowStatus = () => {
   const [allUserStatus, setAllUserStatus] = useState([]);
 
   useEffect(() => {
-
     fetch(`http://localhost:5000/statusPhotoAll`)
       .then((res) => res.json())
       .then((data) => setAllUserStatus(data))
       .catch((e) => console.error(e));
-
   }, [allUserStatus]);
 
   return (

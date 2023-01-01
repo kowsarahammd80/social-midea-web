@@ -16,14 +16,12 @@ const UserStatesShow = () => {
 
   return (
     <div className="mt-5 mb-5">
-
-         {
-          useStatus.map(useStatu => <UserSatasShowMap
-           key={useStatu._id}
-           useStatuData ={useStatu}
-          ></UserSatasShowMap>)
-         }
-
+      {useStatus.map((useStatu) => (
+        <UserSatasShowMap
+          key={useStatu._id}
+          useStatuData={useStatu}
+        ></UserSatasShowMap>
+      ))}
     </div>
   );
 };
