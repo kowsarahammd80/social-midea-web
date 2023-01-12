@@ -5,7 +5,8 @@
 } */
 
 .status-post-btn{
-  background-color: lightgreen;
+  background-color: indigo;
+  color: white;
   padding: 5px 10px;
   margin-left: 10px;
 }

@@ -61,7 +61,7 @@ const ShowStatusMap = ({ allUserStatuData }) => {
   };
 
   return (
-    <div className="my-5 bg-base-400">
+    <div className="my-5 mx-3 lg:mx-0 bg-indigo-100 rounded-xl shadow-xl">
       <div className="flex items-center">
         <div className="avatar placeholder">
           <div className="text-neutral-content rounded-full w-16 p-2">

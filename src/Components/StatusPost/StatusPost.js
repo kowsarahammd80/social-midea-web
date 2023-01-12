@@ -7,8 +7,8 @@ const StatusPost = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="bg-green-100 mb-5 mt-1">
-      <div className=" flex items-center">
+    <div className="bg-indigo-200 mb-5 mt-1">
+      <div className=" flex items-center justify-center">
         <div className="avatar placeholder">
           <div className=" text-neutral-content rounded-full w-16 p-2">
             <img src={user?.photoURL} alt="" className="" />
@@ -22,7 +22,7 @@ const StatusPost = () => {
               placeholder="What's on your mind ?"
               className="input input-bordered w-50 lg:w-96"
             />
-            <button className="status-post-btn rounded-md">Post</button>
+            <button className="status-post-btn rounded-md font-semibold">Post</button>
           </form>
         </div>
       </div>

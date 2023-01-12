@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import TextStatusPost from "../TextStatusPost/TextStatusPost";
 import "./ShowStatus.css";
 import ShowStatusMap from "./ShowStatusMap";
 
@@ -14,7 +15,11 @@ const ShowStatus = () => {
 
   return (
     <div className="my-5 ">
+       
+       <TextStatusPost></TextStatusPost>
+
       {
+        
         // myArray.slice(0).reverse().map / [...array].replace()
         [...allUserStatus].reverse().map((allUserStatu) => (
           <ShowStatusMap
@@ -22,7 +27,12 @@ const ShowStatus = () => {
             allUserStatuData={allUserStatu}
           ></ShowStatusMap>
         ))
+        
       }
+       
+       
+
+
     </div>
   );
 };
