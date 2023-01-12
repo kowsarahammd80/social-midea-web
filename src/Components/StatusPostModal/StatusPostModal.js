@@ -91,7 +91,7 @@ const StatusPostModal = () => {
             ✕
           </label>
           <form onSubmit={handleStatusPost}>
-            <div className="mb-4 p-2">
+            <div className="mb-4 p-2 mt-3">
               <input
                 type="text"
                 name="text"
@@ -112,7 +112,7 @@ const StatusPostModal = () => {
             />
 
             <div className="modal-action">
-              <button type="submit" className="btn bg-lime-500">
+              <button type="submit" className="btn bg-indigo-800">
                 Post
               </button>
 

@@ -3,8 +3,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import "./TextStatusPost.css";
 
 const TextStatusPost = () => {
-   
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
 
   return (
     <div>
@@ -58,6 +57,22 @@ const TextStatusPost = () => {
 
         <hr className="hrColor" />
 
+        {/* comment show option */}
+
+        <div className="flex items-center justify-center rounded-lg">
+          <div className="flex items-center bg-indigo-300 comment-Width my-2">
+            <div className="text-neutral-content flex rounded-full w-16 p-2">
+              <img src="" alt="" className="" />
+            </div>
+            <div className="">
+              <p>User Name</p>
+              <p> User Comments </p>
+            </div>
+          </div>
+        </div>
+
+        {/* comment option */}
+
         <div>
           <div className="flex items-center">
             <div className="text-neutral-content rounded-full w-16 p-2">
@@ -65,7 +80,7 @@ const TextStatusPost = () => {
             </div>
 
             <div>
-              <form >
+              <form>
                 <input
                   type="text"
                   name="comment"
