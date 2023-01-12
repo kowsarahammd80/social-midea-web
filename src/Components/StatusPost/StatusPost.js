@@ -6,6 +6,15 @@ import "./StatusePost.css";
 const StatusPost = () => {
   const { user } = useContext(AuthContext);
 
+  const textStatusPost = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const status = form.status.value;
+
+    console.log(status)
+    
+  };
+
   return (
     <div className="bg-indigo-200 mb-5 mt-1">
       <div className=" flex items-center justify-center">
@@ -16,13 +25,19 @@ const StatusPost = () => {
         </div>
 
         <div className="ml-5 ">
-          <form action="">
+          <form onSubmit={textStatusPost}>
             <input
               type="text"
+              name="status"
               placeholder="What's on your mind ?"
               className="input input-bordered w-50 lg:w-96"
             />
-            <button className="status-post-btn rounded-md font-semibold">Post</button>
+            <button
+              type="submit"
+              className="status-post-btn rounded-md font-semibold"
+            >
+              Post
+            </button>
           </form>
         </div>
       </div>
