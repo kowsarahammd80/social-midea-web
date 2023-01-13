@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import AllUserList from "../../Components/AllUserList/AllUserList";
 import Footer from "../../Sheard/Footer/Footer";
 
 import Navbar from "../../Sheard/Navbar/Navbar";
@@ -44,14 +45,15 @@ const Main = () => {
         </div>
 
         {/* middel side */}
-        <div className="col-span-12 lg:col-span-5 mx-0 lg:mx-14">
+        <div className="col-span-12 lg:col-span-4 mx-0 lg:mx-14">
           <Outlet></Outlet>
         </div>
 
         {/* left side */}
-        <div className="hidden lg:block lg:col-span-1 bg-indigo-50">
-          <div>
-            <img src="" alt="" />
+        <div className="hidden lg:block lg:col-span-2 bg-indigo-50">
+          <div className="mx-1">
+            <h1 className="text-center text-xl font-semibold"> User List </h1>
+            <AllUserList></AllUserList>
           </div>
         </div>
       </div>

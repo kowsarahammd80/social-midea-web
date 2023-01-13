@@ -109,9 +109,11 @@ const StatusPostModal = () => {
               id="photo"
               name="image"
               className="w-0  border-none"
+              required
             />
 
             <div className="modal-action">
+
               <button type="submit" className="btn bg-indigo-800">
                 Post
               </button>

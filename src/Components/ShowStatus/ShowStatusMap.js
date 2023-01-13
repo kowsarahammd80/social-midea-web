@@ -4,6 +4,7 @@ import moment from "moment/moment";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Comments from "../Comments/Comments";
 import Like from "../Like/Like";
+import Loading from "../Loading/Loading";
 
 const ShowStatusMap = ({ allUserStatuData }) => {
   const { user } = useContext(AuthContext);
@@ -13,10 +14,17 @@ const ShowStatusMap = ({ allUserStatuData }) => {
 
   const [comments, setComments] = useState([]);
 
+  const [loading, setLoading] = useState(true)
+
+  
+
   useEffect(() => {
     fetch(`http://localhost:5000/userComment/${allUserStatuData._id}`)
       .then((res) => res.json())
-      .then((data) => setComments(data))
+      .then((data) => {
+        setComments(data)
+        setLoading(false)
+      })
       .catch((e) => console.error(e));
   }, [comments]);
 
@@ -34,6 +42,7 @@ const ShowStatusMap = ({ allUserStatuData }) => {
       allUserStatuData._id,
       postTime
     );
+    form.reset('')
   };
 
   const CommentPost = (comment, displayName, photoURL, _id, postTime) => {
@@ -56,12 +65,17 @@ const ShowStatusMap = ({ allUserStatuData }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        
       })
       .catch((e) => console.error(e));
   };
 
+  if(loading){
+    return <Loading/>
+  }
+
   return (
-    <div className="my-5 mx-3 lg:mx-0 bg-indigo-100 rounded-xl shadow-xl">
+    <div className="my-5 mx-3 lg:mx-0 bg-indigo-50 rounded-xl shadow-xl">
       <div className="flex items-center">
         <div className="avatar placeholder">
           <div className="text-neutral-content rounded-full w-16 p-2">
@@ -84,7 +98,7 @@ const ShowStatusMap = ({ allUserStatuData }) => {
 
       <div className="">
         {
-          allUserStatuData.image ? 
+          allUserStatuData?.image ? 
           <img src={image} alt="" className="w-full height-post-image p-5" />
           :
           <div className="">
@@ -101,7 +115,7 @@ const ShowStatusMap = ({ allUserStatuData }) => {
       {/* comments text show */}
 
       <div>
-        {comments.map((comment) => (
+        {[...comments]?.reverse().map((comment) => (
           <Comments key={comment._id} commentData={comment}></Comments>
         ))}
       </div>

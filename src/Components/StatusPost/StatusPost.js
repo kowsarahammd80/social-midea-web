@@ -31,6 +31,7 @@ const StatusPost = () => {
     .then(res => res.json())
     .then(data => {
       console.log(data)
+      form.reset('')
     })
      .catch(e => console.error(e))
 
@@ -52,6 +53,7 @@ const StatusPost = () => {
               name="status"
               placeholder="What's on your mind ?"
               className="input input-bordered w-50 lg:w-96"
+              required
             />
             <button
               type="submit"

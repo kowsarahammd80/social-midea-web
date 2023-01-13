@@ -30,7 +30,7 @@ const Profile = () => {
 
         <div className="p-2">
           <div className="avatar placeholder -mt-6 ml-10">
-            <div className="bg-neutral-focus text-neutral-content rounded-full w-24">
+            <div className="bg-neutral-focus text-neutral-content rounded-full w-28 h-28">
               <img src={user?.photoURL} alt="" />
             </div>
             <div>

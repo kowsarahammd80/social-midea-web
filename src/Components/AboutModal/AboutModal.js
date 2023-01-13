@@ -45,6 +45,12 @@ const AboutModal = () => {
       <input type="checkbox" id="my-modal1" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box">
+          <label
+            htmlFor="my-modal1"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
+          >
+            ✕
+          </label>
           <h1 className="text-center font-semibold mb-3">Set Your About</h1>
 
           <form onSubmit={handleAbout}>
@@ -84,11 +90,11 @@ const AboutModal = () => {
             />
 
             <div className="modal-action">
-              <button type="submit" className="btn bg-lime-500">
+              <button type="submit" className="btn bg-indigo-800">
                 Update
               </button>
 
-              <label htmlFor="my-modal1" className="btn">
+              <label htmlFor="my-modal1" className="btn bg-red-600">
                 Cancel
               </label>
             </div>

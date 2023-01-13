@@ -45,13 +45,10 @@ const Navbar = () => {
           <i class="fa-solid fa-bell"></i>
         </Link>
       </li>
-      
-      <li>
-        <Link to='/media'>
-            Media
-        </Link>
-      </li>
 
+      <li>
+        <Link to="/media">Media</Link>
+      </li>
     </>
   );
 
@@ -101,8 +98,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navbar}</ul>
-        </div>
-        {" "}
+        </div>{" "}
         <div className="navbar-end">
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -121,7 +117,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <a>Settings</a>
+                <Link>Settings</Link>
               </li>
               {user?.uid && (
                 <li>

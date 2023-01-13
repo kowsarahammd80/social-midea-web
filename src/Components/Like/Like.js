@@ -95,7 +95,7 @@ const Like = ({allUserStatuData}) => {
           </button>
 
           {
-            likes.length ? <span className="ml-3"> {likes.length} Peoples Like</span>
+            likes.length ? <span className="ml-3"> {likes.length} Peoples Likes</span>
             : 
             <>
               
@@ -106,7 +106,14 @@ const Like = ({allUserStatuData}) => {
             <i class="fa-solid fa-heart love"></i>
           </button>
 
-          <span className="ml-2">{loves.length}</span>
+         {
+           loves.length  ?  <span className="ml-2">
+               {loves.length} Peoples loves </span>  
+             : 
+             <></>
+           }
+           
+         
         </div>
       </div>
     </div>
