@@ -16,7 +16,7 @@ const ShowStatus = () => {
   return (
     <div className="my-5 ">
        
-       <TextStatusPost></TextStatusPost>
+       {/* <TextStatusPost></TextStatusPost> */}
 
       {
         

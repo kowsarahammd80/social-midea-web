@@ -7,11 +7,11 @@ const StatusPostModal = () => {
   const { user } = useContext(AuthContext);
   const imageHostKey = process.env.REACT_APP_image_key;
 
-  const [modal, setModal] = useState(true);
+  // const [modal, setModal] = useState(true);
 
-  const handlePOst = () => {
-    setModal(false);
-  };
+  // const handlePOst = () => {
+  //   setModal(false);
+  // };
 
   const handleStatusPost = (event) => {
     const postTime = moment().format("lll");

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import moment from "moment/moment";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import StatusPostModal from "../StatusPostModal/StatusPostModal";
 import "./StatusePost.css";
@@ -7,12 +8,32 @@ const StatusPost = () => {
   const { user } = useContext(AuthContext);
 
   const textStatusPost = (event) => {
+    const postTime = moment().format("lll");
     event.preventDefault();
     const form = event.target;
     const status = form.status.value;
 
-    console.log(status)
-    
+    const textStatusInfo = {
+       displayName: user.displayName,
+       photoURL: user.photoURL,
+       email: user.email,
+       status: status,
+       postTime: postTime
+    }
+
+    fetch(`http://localhost:5000/statusPhoto`,{
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(textStatusInfo)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+    })
+     .catch(e => console.error(e))
+
   };
 
   return (

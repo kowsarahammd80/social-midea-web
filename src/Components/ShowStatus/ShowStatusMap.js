@@ -8,7 +8,7 @@ import Like from "../Like/Like";
 const ShowStatusMap = ({ allUserStatuData }) => {
   const { user } = useContext(AuthContext);
 
-  const { text, image, email, displayName, photoURL, postTime } =
+  const { text, image, email, displayName, photoURL, postTime, status } =
     allUserStatuData;
 
   const [comments, setComments] = useState([]);
@@ -72,21 +72,31 @@ const ShowStatusMap = ({ allUserStatuData }) => {
         <div>
           <h1 className="font-semibold">{displayName}</h1>
           <p>{postTime}</p>
+          <p></p>
         </div>
         <div></div>
       </div>
 
       <div>
         <p className="px-3">{text}</p>
+        
       </div>
 
       <div className="">
-        <img src={image} alt="" className="w-full height-post-image p-5" />
+        {
+          allUserStatuData.image ? 
+          <img src={image} alt="" className="w-full height-post-image p-5" />
+          :
+          <div className="">
+             <p className="text-center text-lg font-semibold mb-3">{status}</p>
+          </div>
+        }
+        {/* <img src={image} alt="" className="w-full height-post-image p-5" /> */}
       </div>
 
-      <hr />
+      <hr className="hrColor" />
       <Like allUserStatuData={allUserStatuData}></Like>
-      <hr />
+      <hr className="hrColor" />
 
       {/* comments text show */}
 
