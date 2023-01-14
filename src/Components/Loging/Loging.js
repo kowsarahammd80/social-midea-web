@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import GoogleSocial from "../../Sheard/Social/GoogleSocial";
+import Loading from "../Loading/Loading";
 
 const Loging = () => {
   
   const {login, loading} = useContext(AuthContext)
 
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
    
   const handleLogin = (event) =>{
 
@@ -20,12 +22,14 @@ const Loging = () => {
     login(email, password)
      .then(result => {
       if(loading){
-        return <h1>loading..</h1>
+        return <Loading></Loading>
 
       }
+
       const user = result.user
        console.log(user)
-       navigate('/home')
+       navigate("/home");
+
      })
      .catch(error => {
       

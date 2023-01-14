@@ -6,6 +6,8 @@ import Main from "../../Layout/Main/Main";
 import Homepages from "../../Pages/HomePages/Homepages";
 import MassagePage from "../../Pages/MassagePage/MassagePage";
 import ProfilePage from "../../Pages/ProfilePage.js/ProfilePage";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+
 
 
 const routers = createBrowserRouter([
@@ -29,22 +31,22 @@ const routers = createBrowserRouter([
     children: [
       {
         path: '/home',
-        element: <Homepages></Homepages>
+        element: <PrivateRoute><Homepages></Homepages></PrivateRoute>
       },
       
       {
         path: '/profile',
-        element: <ProfilePage></ProfilePage>
+        element: <PrivateRoute><ProfilePage></ProfilePage></PrivateRoute>
       },
 
       {
         path:'/massage',
-        element: <MassagePage/>
+        element: <PrivateRoute><MassagePage/></PrivateRoute>
       },
 
       {
         path: '/media',
-        element: <Media></Media>
+        element: <PrivateRoute><Media></Media></PrivateRoute>
       }
       
     ]

@@ -1,4 +1,5 @@
 import React from "react";
+import './AllUserListMap.css'
 
 const AllUserListMap = ({allUserListData}) => {
   
@@ -25,7 +26,9 @@ const AllUserListMap = ({allUserListData}) => {
         
 
         <div className="card-actions justify-center">
-          <button className="btn bg-indigo-700">Add Now</button>
+          <button className="buttonAdd bg-indigo-800">Add Now</button>
+
+          <button className="buttonFollow bg-purple-700">Follow Now</button>
         </div>
       </div>
     </div>

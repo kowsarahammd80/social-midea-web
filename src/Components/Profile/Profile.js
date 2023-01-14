@@ -33,7 +33,7 @@ const Profile = () => {
             <div className="bg-neutral-focus text-neutral-content rounded-full w-28 h-28">
               <img src={user?.photoURL} alt="" />
             </div>
-            <div>
+            <div className="-mt-10">
               <h1 className="ml-2 font-semibold">{user?.displayName}</h1>
             </div>
           </div>
