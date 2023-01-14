@@ -10,14 +10,12 @@ const UserSatasShowMap = ({ useStatuData }) => {
 
   const [comments, setComments] = useState([]);
 
-
   useEffect(() => {
-    fetch(`http://localhost:5000/userComment/${useStatuData._id}`)
+    fetch(`https://y-kowsarahammd80.vercel.app/userComment/${useStatuData._id}`)
       .then((res) => res.json())
       .then((data) => setComments(data))
       .catch((e) => console.error(e));
   }, [comments]);
-
 
   const handleCommentPost = (event) => {
     const postTime = moment().format("lll");
@@ -33,7 +31,7 @@ const UserSatasShowMap = ({ useStatuData }) => {
       useStatuData._id,
       postTime
     );
-    form.reset('')
+    form.reset("");
   };
 
   const CommentPost = (comment, displayName, photoURL, _id, postTime) => {
@@ -46,7 +44,7 @@ const UserSatasShowMap = ({ useStatuData }) => {
     };
 
     // console.log(commentsInfo);
-    fetch(`http://localhost:5000/userComment`, {
+    fetch(`https://y-kowsarahammd80.vercel.app/userComment`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -71,7 +69,6 @@ const UserSatasShowMap = ({ useStatuData }) => {
 
         <div>
           <h1 className="font-semibold">{displayName}</h1>
-          
         </div>
       </div>
       <div>

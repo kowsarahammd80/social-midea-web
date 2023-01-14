@@ -14,27 +14,26 @@ const StatusPost = () => {
     const status = form.status.value;
 
     const textStatusInfo = {
-       displayName: user.displayName,
-       photoURL: user.photoURL,
-       email: user.email,
-       status: status,
-       postTime: postTime
-    }
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      email: user.email,
+      status: status,
+      postTime: postTime,
+    };
 
-    fetch(`http://localhost:5000/statusPhoto`,{
+    fetch(`https://y-kowsarahammd80.vercel.app/statusPhoto`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify(textStatusInfo)
+      body: JSON.stringify(textStatusInfo),
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-      form.reset('')
-    })
-     .catch(e => console.error(e))
-
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        form.reset("");
+      })
+      .catch((e) => console.error(e));
   };
 
   return (

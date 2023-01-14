@@ -9,38 +9,36 @@ const UserStatesShow = () => {
 
   const { user } = useContext(AuthContext);
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-
-    fetch(`http://localhost:5000/statusPhotoAll/${user?.email}`)
+    fetch(`https://y-kowsarahammd80.vercel.app/statusPhotoAll/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setUserStatus(data)
-        setLoading(false)
+        setUserStatus(data);
+        setLoading(false);
       })
       .catch((e) => console.error(e));
-
   }, [user?.email]);
 
-  if(loading){
-    return <Loading/>
+  if (loading) {
+    return <Loading />;
   }
 
   return (
     <div className="mt-5 mb-5">
-
-      {
-      useStatus.length ? [...useStatus].reverse().map((useStatu) => (
-        <UserSatasShowMap
-          key={useStatu._id}
-          useStatuData={useStatu}
-        ></UserSatasShowMap>
-      ))
-      :
-      <IfDataDontHave></IfDataDontHave>
-
-    }
+      {useStatus.length ? (
+        [...useStatus]
+          .reverse()
+          .map((useStatu) => (
+            <UserSatasShowMap
+              key={useStatu._id}
+              useStatuData={useStatu}
+            ></UserSatasShowMap>
+          ))
+      ) : (
+        <IfDataDontHave></IfDataDontHave>
+      )}
     </div>
   );
 };

@@ -12,7 +12,7 @@ const Profile = () => {
   const [abouts, setAbouts] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/registerData/${user?.email}`)
+    fetch(`https://y-kowsarahammd80.vercel.app/registerData/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setAbouts(data));
   }, [user?.email]);

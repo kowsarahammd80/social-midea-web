@@ -62,7 +62,7 @@ const StatusPostModal = () => {
       postTime: postTime,
     };
 
-    fetch(`http://localhost:5000/statusPhoto`, {
+    fetch(`https://y-kowsarahammd80.vercel.app/statusPhoto`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -113,7 +113,6 @@ const StatusPostModal = () => {
             />
 
             <div className="modal-action">
-
               <button type="submit" className="btn bg-indigo-800">
                 Post
               </button>

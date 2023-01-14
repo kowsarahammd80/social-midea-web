@@ -23,7 +23,7 @@ const AboutModal = () => {
       bathDate: bathDate,
     };
 
-    fetch(`http://localhost:5000/userabout/${user?.email}`, {
+    fetch(`https://y-kowsarahammd80.vercel.app/userabout/${user?.email}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",

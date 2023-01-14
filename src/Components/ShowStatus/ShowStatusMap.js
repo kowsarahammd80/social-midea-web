@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import './ShowStatus.css'
+import "./ShowStatus.css";
 import moment from "moment/moment";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Comments from "../Comments/Comments";
@@ -14,16 +14,16 @@ const ShowStatusMap = ({ allUserStatuData }) => {
 
   const [comments, setComments] = useState([]);
 
-  const [loading, setLoading] = useState(true)
-
-  
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/userComment/${allUserStatuData._id}`)
+    fetch(
+      `https://y-kowsarahammd80.vercel.app/userComment/${allUserStatuData._id}`
+    )
       .then((res) => res.json())
       .then((data) => {
-        setComments(data)
-        setLoading(false)
+        setComments(data);
+        setLoading(false);
       })
       .catch((e) => console.error(e));
   }, [comments]);
@@ -42,7 +42,7 @@ const ShowStatusMap = ({ allUserStatuData }) => {
       allUserStatuData._id,
       postTime
     );
-    form.reset('')
+    form.reset("");
   };
 
   const CommentPost = (comment, displayName, photoURL, _id, postTime) => {
@@ -55,7 +55,7 @@ const ShowStatusMap = ({ allUserStatuData }) => {
     };
 
     // console.log(commentsInfo);
-    fetch(`http://localhost:5000/userComment`, {
+    fetch(`https://y-kowsarahammd80.vercel.app/userComment`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -65,13 +65,12 @@ const ShowStatusMap = ({ allUserStatuData }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        
       })
       .catch((e) => console.error(e));
   };
 
-  if(loading){
-    return <Loading/>
+  if (loading) {
+    return <Loading />;
   }
 
   return (
@@ -93,18 +92,16 @@ const ShowStatusMap = ({ allUserStatuData }) => {
 
       <div>
         <p className="px-3">{text}</p>
-        
       </div>
 
       <div className="">
-        {
-          allUserStatuData?.image ? 
+        {allUserStatuData?.image ? (
           <img src={image} alt="" className="w-full height-post-image p-5" />
-          :
+        ) : (
           <div className="">
-             <p className="text-center text-lg font-semibold mb-3">{status}</p>
+            <p className="text-center text-lg font-semibold mb-3">{status}</p>
           </div>
-        }
+        )}
         {/* <img src={image} alt="" className="w-full height-post-image p-5" /> */}
       </div>
 
@@ -134,6 +131,7 @@ const ShowStatusMap = ({ allUserStatuData }) => {
                 name="comment"
                 placeholder="Shear your coments"
                 className="input input-bordered w-50 lg:w-96"
+                required
               />
               <button className="btn-ghost ml-3 p-2 rounded-lg">
                 <i class="fa-solid fa-play"></i>

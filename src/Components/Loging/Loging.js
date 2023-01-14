@@ -7,9 +7,11 @@ import Loading from "../Loading/Loading";
 const Loging = () => {
   
   const {login, loading} = useContext(AuthContext)
+         
 
 
   const navigate = useNavigate();
+
    
   const handleLogin = (event) =>{
 
@@ -21,10 +23,6 @@ const Loging = () => {
     console.log(email, password) 
     login(email, password)
      .then(result => {
-      if(loading){
-        return <Loading></Loading>
-
-      }
 
       const user = result.user
        console.log(user)

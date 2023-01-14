@@ -14,9 +14,9 @@ const Comments = ({commentData}) => {
         </div>
         <div className="bg-indigo-100 rounded-lg">
         <div className="p-2">
-         <div className="flex">
+         <div className="">
          <p className="font-semibold">{userName}</p>
-         <span className="ml-3">{time}</span>
+         <span className="">{time}</span>
          </div>
          
           <p className="p-1">{userComment}</p>

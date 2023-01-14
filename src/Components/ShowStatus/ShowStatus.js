@@ -7,7 +7,7 @@ const ShowStatus = () => {
   const [allUserStatus, setAllUserStatus] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/statusPhotoAll`)
+    fetch(`https://y-kowsarahammd80.vercel.app/statusPhotoAll`)
       .then((res) => res.json())
       .then((data) => setAllUserStatus(data))
       .catch((e) => console.error(e));
@@ -15,11 +15,9 @@ const ShowStatus = () => {
 
   return (
     <div className="my-5 ">
-       
-       {/* <TextStatusPost></TextStatusPost> */}
+      {/* <TextStatusPost></TextStatusPost> */}
 
       {
-        
         // myArray.slice(0).reverse().map / [...array].replace()
         [...allUserStatus].reverse().map((allUserStatu) => (
           <ShowStatusMap
@@ -27,12 +25,7 @@ const ShowStatus = () => {
             allUserStatuData={allUserStatu}
           ></ShowStatusMap>
         ))
-        
       }
-       
-       
-
-
     </div>
   );
 };

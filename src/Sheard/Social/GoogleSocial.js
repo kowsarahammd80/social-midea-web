@@ -1,12 +1,15 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Loading from "../../Components/Loading/Loading";
 import "./GoogleSocial.css";
 
 const GoogleSocial = () => {
   const { socialSignUp, user } = useContext(AuthContext);
   const provider = new GoogleAuthProvider();
+
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -14,25 +17,28 @@ const GoogleSocial = () => {
     socialSignUp(provider)
       .then((result) => {
         const user = result.user;
+
         console.log(user);
-        userData(user.displayName, user.email, user.photoURL)
+
+        userData(user.displayName, user.email, user.photoURL);
+
         navigate("/home");
       })
       .catch((error) => console.log(error));
 
-     
-      
+    if (loading) {
+      return <Loading />;
+    }
   };
 
   const userData = (displayName, email, photoURL) => {
-    
-    const socialUserInfo ={
+    const socialUserInfo = {
       name: displayName,
       email: email,
-      image: photoURL
-    }
+      image: photoURL,
+    };
 
-    fetch(`http://localhost:5000/userabout/${user?.email}`, {
+    fetch(`https://y-kowsarahammd80.vercel.app/userabout/${user?.email}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
@@ -42,8 +48,8 @@ const GoogleSocial = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-      })
-  }
+      });
+  };
 
   return (
     <div>

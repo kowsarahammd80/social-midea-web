@@ -74,7 +74,7 @@ const Register = () => {
       image: image,
     };
 
-    fetch(`http://localhost:5000/registerData`, {
+    fetch(`https://y-kowsarahammd80.vercel.app/registerData`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
